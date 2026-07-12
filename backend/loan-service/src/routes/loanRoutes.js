@@ -1,47 +1,16 @@
 const express = require("express");
-const router = express.Router();
 
 const {
     createLoan,
     getAllLoans
 } = require("../controllers/loanController");
 
-const {
-    investInLoan
-} = require("../controllers/investmentController");
+const authenticate = require("../middleware/authMiddleware");
 
-const authenticateUser = require("../middleware/authMiddleware");
-const authorizeRoles = require("../middleware/roleMiddleware");
+const router = express.Router();
 
-// ---------------------------
-// Borrower Routes
-// ---------------------------
+router.post("/", authenticate, createLoan);
 
-// Create Loan
-router.post(
-    "/",
-    authenticateUser,
-    authorizeRoles("Borrower"),
-    createLoan
-);
-
-// View All Loans
-router.get(
-    "/",
-    authenticateUser,
-    getAllLoans
-);
-
-// ---------------------------
-// Investor Route
-// ---------------------------
-
-// Invest in a Loan
-router.post(
-    "/:id/invest",
-    authenticateUser,
-    authorizeRoles("Investor"),
-    investInLoan
-);
+router.get("/", authenticate, getAllLoans);
 
 module.exports = router;
