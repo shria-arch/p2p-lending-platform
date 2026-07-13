@@ -7,12 +7,17 @@ function CreateLoan() {
 
   const [amount, setAmount] = useState("");
   const [interestRate, setInterestRate] = useState("");
+  const [document, setDocument] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const data = await createLoan(amount, interestRate);
+      const data = await createLoan(
+        amount,
+        interestRate,
+        document
+      );
 
       alert(data.message);
 
@@ -21,7 +26,8 @@ function CreateLoan() {
       console.error(error);
 
       alert(
-        error.response?.data?.message || "Failed to create loan."
+        error.response?.data?.message ||
+        "Failed to create loan."
       );
     }
   };
@@ -47,7 +53,7 @@ function CreateLoan() {
           />
         </div>
 
-        <div style={{ marginBottom: "20px" }}>
+        <div style={{ marginBottom: "15px" }}>
           <label>Interest Rate (%)</label>
           <br />
 
@@ -61,6 +67,17 @@ function CreateLoan() {
               width: "300px",
               padding: "10px",
             }}
+          />
+        </div>
+
+        <div style={{ marginBottom: "20px" }}>
+          <label>Financial Proof (PDF/JPG/PNG)</label>
+          <br />
+
+          <input
+            type="file"
+            accept=".pdf,.jpg,.jpeg,.png"
+            onChange={(e) => setDocument(e.target.files[0])}
           />
         </div>
 
