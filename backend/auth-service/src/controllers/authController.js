@@ -52,10 +52,10 @@ const registerUser = async (req, res) => {
         });
 
     } catch (error) {
-        console.error(error);
+      console.error("REGISTER ERROR:", error);
 
-        return res.status(500).json({
-            message: "Internal Server Error"
+return res.status(500).json({
+    message: error.message
         });
     }
 };
@@ -122,10 +122,10 @@ const loginUser = async (req, res) => {
         });
 
     } catch (error) {
-        console.error(error);
+        console.error("LOGIN ERROR:", error);
 
-        return res.status(500).json({
-            message: "Internal Server Error"
+return res.status(500).json({
+    message: error.message
         });
     }
 };

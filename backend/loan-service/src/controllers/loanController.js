@@ -5,6 +5,8 @@ const pool = require("../config/db");
 // ---------------------------
 const createLoan = async (req, res) => {
   try {
+    console.log("BODY:", req.body);
+console.log("FILE:", req.file);
     // Borrower ID comes from JWT
     const borrower_id = req.user.id;
 

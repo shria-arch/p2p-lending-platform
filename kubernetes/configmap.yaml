@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: p2p-config
+  namespace: p2p-lending
+
+data:
+  DB_HOST: "database-1.cngu8cuie2zl.eu-north-1.rds.amazonaws.com"
+  DB_PORT: "5432"
+  DB_NAME: "p2p_lending"
+  DB_USER: "postgres"
+  JWT_SECRET: "mySuperSecretKey12345"
+  AUTH_SERVICE_PORT: "3001"
+  LOAN_SERVICE_PORT: "3002"
+  API_GATEWAY_PORT: "3000"

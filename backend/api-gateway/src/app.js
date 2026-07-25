@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(
     "/api/auth",
     createProxyMiddleware({
-        target: "http://localhost:3001",
+        target: "http://16.16.34.145:3001",
         changeOrigin: true,
     })
 );
