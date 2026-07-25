@@ -1,0 +1,17 @@
+name: P2P Lending CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Verify Workflow
+        run: echo "GitHub Actions is working!"
