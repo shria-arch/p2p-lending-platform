@@ -49,7 +49,7 @@ function BorrowerDashboard() {
 
       <hr />
 
-      <h2>My Loans</h2>
+      <h2>All Loans</h2>
 
       {loans.length === 0 ? (
         <p>No loans found.</p>
@@ -57,7 +57,11 @@ function BorrowerDashboard() {
         <table
           border="1"
           cellPadding="10"
-          style={{ borderCollapse: "collapse" }}
+          style={{
+  borderCollapse: "collapse",
+  margin: "20px auto",
+  minWidth: "700px",
+}}
         >
           <thead>
             <tr>
