@@ -45,19 +45,39 @@ function Login() {
         justifyContent: "center",
         alignItems: "center",
         height: "100vh",
-        backgroundColor: "#f4f4f4",
+        backgroundColor: "#0f172a",
       }}
     >
       <div
         style={{
           width: "350px",
           padding: "30px",
-          background: "#ffffff",
+          background: "#111827",
           borderRadius: "10px",
-          boxShadow: "0 0 10px rgba(0,0,0,0.2)",
+          boxShadow: "0 20px 50px rgba(0,0,0,0.35)",
         }}
       >
-        <h2 style={{ textAlign: "center" }}>Login</h2>
+       <h2
+  style={{
+    textAlign: "center",
+    color: "#f8fafc",
+    fontSize: "28px",
+    marginBottom: "8px",
+  }}
+>
+  Welcome Back
+</h2>
+
+<p
+  style={{
+    textAlign: "center",
+    color: "#94a3b8",
+    marginTop: "0",
+    marginBottom: "20px",
+  }}
+>
+  Sign in to your P2P Lending account
+</p>
 
         <input
           type="email"
@@ -99,6 +119,19 @@ function Login() {
         >
           Login
         </button>
+                <p style={{ textAlign: "center", marginTop: "15px" }}>
+          Don't have an account?{" "}
+          <span
+            onClick={() => navigate("/register")}
+            style={{
+              color: "#007bff",
+              cursor: "pointer",
+              textDecoration: "underline",
+            }}
+          >
+            Register
+          </span>
+        </p>
       </div>
     </div>
   );
