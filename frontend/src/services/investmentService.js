@@ -1,16 +1,13 @@
 import axios from "axios";
 
-const API_URL = "http://16.16.34.145:3002";
+const API_URL = "http://16.16.34.145:3002/api/investments";
 
 export const createInvestment = async (loanId, amountFunded) => {
-  const user = JSON.parse(localStorage.getItem("user"));
   const token = localStorage.getItem("token");
 
   const response = await axios.post(
-    API_URL,
+    `${API_URL}/${loanId}`,
     {
-      loan_id: loanId,
-      investor_id: user.id,
       amount_funded: amountFunded,
     },
     {

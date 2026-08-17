@@ -4,6 +4,7 @@ const express = require("express");
 const cors = require("cors");
 
 const loanRoutes = require("./routes/loanRoutes");
+const investmentRoutes = require("./routes/investmentRoutes");
 
 const app = express();
 
@@ -12,6 +13,7 @@ app.use(express.json());
 
 // Loan Routes
 app.use("/api/loans", loanRoutes);
+app.use("/api/investments", investmentRoutes);
 
 app.get("/", (req, res) => {
   res.json({
