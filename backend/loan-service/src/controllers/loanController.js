@@ -25,9 +25,9 @@ console.log("FILE:", req.file);
     // Insert loan into database
     const result = await pool.query(
       `INSERT INTO loans
-      (borrower_id, amount, interest_rate, document_url)
-      VALUES ($1, $2, $3, $4)
-      RETURNING *`,
+(borrower_id, amount, interest_rate, funded_amount, remaining_amount, status, document_url)
+VALUES ($1, $2, $3, 0, $2, 'Pending', $4)
+RETURNING *`,
       [
         borrower_id,
         amount,
