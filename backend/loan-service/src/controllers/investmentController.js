@@ -64,7 +64,7 @@ const investInLoan = async (req, res) => {
     const newRemainingAmount = remainingAmount - investmentAmount;
 
     const newStatus =
-      newRemainingAmount === 0 ? "Funded" : "Funding";
+      newRemainingAmount === 0 ? "Active" : "Funding";
 
     // Create investment record
     const investmentResult = await client.query(
